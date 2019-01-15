@@ -1,14 +1,4 @@
-SC=0
-#while [SC == 0]
-#do
+
 GPSDATE=$(gpspipe -w -n 10 | grep TPV | sed -r 's/.*"time":"([^"]*)".*/\1/' | tail -n 1 | sed -e 's/^\(.\{10\}\)T\(.\{8\}\).*/\1 \2/')
-echo $GPSDATE #| grep -v '^{'
-#TN="$(grep -v '^{' $GPSDATE)"
-#echo "this ---$TN"
-#if [ $GSPDATE eq  {"class":" PV","dev"
-
-
-#NDATE=$(date  -d"$GPSDATE" +%s)
-#echo $NDATE
-
+echo $GPSDATE 
 date -u -s"$GPSDATE"
