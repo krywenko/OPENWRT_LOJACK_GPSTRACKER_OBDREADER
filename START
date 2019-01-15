@@ -3,5 +3,5 @@ sleep 20
 /root/./OBSstart >nul 2>&1  &
 
 /root/./timer.pl 10 /root/./csvrsync &
-/root/./timer.pl 10 /root/./gpxrsync
+/root/./timer.pl 13 /root/./gpxrsync
 
