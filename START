@@ -2,5 +2,6 @@ sleep 20
 /root/./getTime
 /root/./OBSstart >nul 2>&1  &
 
-/root/./timer.pl 10 /root/./csvrsync
+/root/./timer.pl 10 /root/./csvrsync &
+/root/./timer.pl 10 /root/./gpsrsync
 
