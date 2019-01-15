@@ -1,0 +1,8 @@
+name=tmp.csv
+ 
+#name="$(awk 'BEGIN { print strftime("OBD-%m-%d-%Y", systime())}')"
+touch /tmp/$name >nul 2>&1 
+#echo $name
+#echo "linenew" >> /tmp/$name
+#sed -i '1c timeStamp,Speed,RPM,Engine_Load,Fuel_rate' /tmp/$name #>>/tmp/test.csv
+#sed -i '/linenew/d' /tmp/$name

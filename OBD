@@ -1,0 +1,49 @@
+#!/usr/bin/env python
+
+import obd
+import datetime
+import time 
+
+import subprocess
+import os
+
+connection = obd.OBD() # auto-connects to USB or RF port
+
+cmd1 = obd.commands.SPEED # select an OBD command (sensor)
+cmd2 = obd.commands.RPM # select an OBD command (sensor)
+cmd3 = obd.commands.ENGINE_LOAD # select an OBD command (sensor)
+cmd4 = obd.commands.FUEL_RATE # select an OBD command (sensor)
+
+while True:
+    os.popen('/root/./TMPcsv') # creates tmp.cvs file
+    #timestr = time.strftime("%Y-%m-%d %H:%M:%S") # %s for epoch
+    timestr = time.strftime("%s") # %s for epoch
+
+    response = connection.query(cmd1) # send the command, and parse the response
+    Speed = (response.value)
+    if not response.is_null():   
+      print(response.value)
+    
+
+    response = connection.query(cmd2) # send the command, and parse the response 
+    Rpm = (response.value)
+    if not response.is_null():
+      print(response.value)
+
+
+    response = connection.query(cmd3) # send the command, and parse the response
+    EngL = (response.value)
+    if not response.is_null():
+      print(response.value)
+
+
+
+    response = connection.query(cmd4) # send the command, and parse the response
+    LpH = (response.value)
+    if not response.is_null():
+      print(response.value)
+
+
+    print timestr,",",Speed,",",Rpm,",",EngL,",",LpH
+ 
+    time.sleep(1) 

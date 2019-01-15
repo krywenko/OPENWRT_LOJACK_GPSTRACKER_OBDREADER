@@ -1,0 +1,27 @@
+#!/usr/bin/perl -w
+
+
+#my $file = `/root/./fileN`;
+#print $file;
+open(SUB, "/root/./OBD |");
+
+while ($value = <SUB>) {
+
+open(my $fh, '>>', '/tmp/tmp.csv');
+$file = `/root/./fileN`;
+#print $file;
+
+print $fh "$value";
+system("awk '!/^[/' /tmp/tmp.csv");
+system("sed -i 's/None/-1/g' /tmp/tmp.csv");
+system("sed -i 's/kph//g' /tmp/tmp.csv");
+system("sed -i 's/percent//g' /tmp/tmp.csv");
+system("sed -i 's/revolutions_per_minute//g' /tmp/tmp.csv");
+system("sed -i 's/ *, */,/g' /tmp/tmp.csv");
+#print "$value";
+system("cat /tmp/tmp.csv >> $file");
+system("rm /tmp/tmp.csv");
+}
+
+
+

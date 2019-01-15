@@ -1,0 +1,16 @@
+#!/bin/sh
+DT="$(date +%F)"
+DTN="OBD-$DT"
+Hn="$(cat /proc/sys/kernel/hostname)"
+DIR="/tmp/csv/$Hn/OBD"
+#echo $DIR
+mkdir /tmp/csv >nul 2>&1
+mkdir /tmp/csv/$Hn >nul 2>&1
+mkdir $DIR >nul 2>&1
+name="$DIR/$DTN"
+echo $name
+touch $name >nul 2>&1
+
+echo "linenew" >> $name
+sed -i '1c timeStamp,Speed,RPM,Engine_Load,Fuel_rate' $name 
+sed -i '/linenew/d' $name
