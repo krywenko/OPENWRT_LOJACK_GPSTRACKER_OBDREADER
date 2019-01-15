@@ -26,3 +26,5 @@ gpsd -N -D3 -G -F /var/run/gpsd.sock /dev/ttyACM0 >nul 2>&1 & echo "gps started"
 /root/./gpxtimer.sh >nul 2>&1 & echo "gpxlogger started"
 
 /root/./START >nul 2>&1 & echo "OBD started"
+
+the prefered decive would be an orangepi Zero.  you install all devices on a powered usb hub that is wierd to your car's eletrical system.
