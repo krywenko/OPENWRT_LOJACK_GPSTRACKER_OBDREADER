@@ -4,7 +4,7 @@ openwrt  lojack gps tracker OBDreader
 this is based on my Openwrt database controler ( Zero-Orange-Pi--MQTT-openwrt or banana pi version) . this is openwrt based "loJack"  it will work in both offline mode 
 ( store data on device  once in range of  wifi base upload the data to  the database server and  file directory)
 or in online mode ( if a suitable Cell modem is connected to openwrt device or if linked to your cell phones hotspot)
--
+
 prerequisites- on the  Openwrt
 perl - install perlbase system and perlbase net
 bash, rsync, gpsd, gpsd client, kmod-bluetooth, bluez-libs, bluez-utils, kmod-usb-core, kmod-usb-uhci, kmod-usb2 usbutils, 
@@ -20,6 +20,9 @@ then simple copy the files to  root dir
  and  in start up local add this
  
  hciconfig hci0 up >nul 2>&1 & echo "bluetooth stared"
+ 
 gpsd -N -D3 -G -F /var/run/gpsd.sock /dev/ttyACM0 >nul 2>&1 & echo "gps started"
+
 /root/./gpxtimer.sh >nul 2>&1 & echo "gpxlogger started"
+
 /root/./START >nul 2>&1 & echo "OBD started"
