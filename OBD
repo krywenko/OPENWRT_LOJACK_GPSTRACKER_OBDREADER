@@ -16,8 +16,8 @@ cmd4 = obd.commands.FUEL_RATE # select an OBD command (sensor)
 
 while True:
     os.popen('/root/./TMPcsv') # creates tmp.cvs file
-    #timestr = time.strftime("%Y-%m-%d %H:%M:%S") # %s for epoch
-    timestr = time.strftime("%s") # %s for epoch
+    #timestr = time.strftime("%Y-%m-%d %H:%M:%S") # use for cvs-to-influxb 
+    timestr = time.strftime("%s") # use for collectd tail_csv import need to diasble date creation in fileN
 
     response = connection.query(cmd1) # send the command, and parse the response
     Speed = (response.value)
