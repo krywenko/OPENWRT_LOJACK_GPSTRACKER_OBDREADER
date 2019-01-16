@@ -1,6 +1,6 @@
 #!/bin/sh
 DT="$(date +%F)"
-DTN="OBD-$DT"
+DTN="OBD-$DT" # remove -$DT if you wish to use collectD tail_scv for data import
 Hn="$(cat /proc/sys/kernel/hostname)"
 DIR="/tmp/csv/$Hn/OBD"
 #echo $DIR
